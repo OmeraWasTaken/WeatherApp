@@ -1,5 +1,5 @@
 //
-//  WetherDetailsViewModel.swift
+//  WeatherDetailsViewModel.swift
 //  WetherApp
 //
 //  Created by Quentin Richard on 02/08/2019.
@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+final class WeatherDetailsViewModel: WeatherDetailsInterface {
+    let forecast: [WeatherByDate]
+    
+    init(with forecast: [WeatherByDate]) {
+        self.forecast = forecast
+    }
+}

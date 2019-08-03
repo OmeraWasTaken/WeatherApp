@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+protocol WeatherListCellInterface {
+    // *****************************************************************************************************************
+    // MARK: - Variable
+    var date: String { get }
+    var city: String { get }
+    var temperature: String { get }
+    var humidity: String { get }
+}

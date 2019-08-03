@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WeatherListTableView" customModule="WeatherApp" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WeatherDetailsController" customModule="WeatherApp" customModuleProvider="target">
             <connections>
-                <outlet property="tableView" destination="RiT-gg-mf0" id="EGI-X8-8X2"/>
-                <outlet property="view" destination="iN0-l3-epB" id="48s-lY-VLZ"/>
+                <outlet property="tableView" destination="ZZD-SV-0mh" id="fa5-Sr-AVF"/>
+                <outlet property="view" destination="iN0-l3-epB" id="c1D-iy-idH"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -21,17 +21,17 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RiT-gg-mf0">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZZD-SV-0mh">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="RiT-gg-mf0" secondAttribute="bottom" id="4QA-wN-aOM"/>
-                <constraint firstItem="RiT-gg-mf0" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="JSK-E7-Vdc"/>
-                <constraint firstItem="RiT-gg-mf0" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="ggJ-4q-oGr"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="RiT-gg-mf0" secondAttribute="trailing" id="jLY-fo-Oiq"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ZZD-SV-0mh" secondAttribute="trailing" id="TTk-W6-x5m"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ZZD-SV-0mh" secondAttribute="bottom" id="kzq-3h-Fmk"/>
+                <constraint firstItem="ZZD-SV-0mh" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="mIn-z5-a1S"/>
+                <constraint firstItem="ZZD-SV-0mh" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="rQw-gA-MC8"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
         </view>

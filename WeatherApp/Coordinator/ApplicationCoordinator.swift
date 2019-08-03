@@ -11,16 +11,14 @@ import UIKit
 class ApplicationCoordinator: Coordinator {
     let window: UIWindow
     let rootViewController: UINavigationController
+    let weatherListCoordinator: WeatherListCoordinator
 
     init(window: UIWindow) {
         self.window = window
         rootViewController = UINavigationController()
         rootViewController.navigationBar.prefersLargeTitles = true
-
-        // Remove it if working
-        let emptyViewController = UIViewController()
-        emptyViewController.view.backgroundColor = .cyan
-        rootViewController.pushViewController(emptyViewController, animated: false)
+        weatherListCoordinator = WeatherListCoordinator(presenter: rootViewController)
+        weatherListCoordinator.start()
     }
 
     func start() {

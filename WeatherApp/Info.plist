@@ -2,6 +2,27 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need to access to your localisation if you want to see the weather </string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>www.infoclimat.fr</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+			</dict>
+		</dict>
+	</dict>
+	<key>ApiKey</key>
+	<string>81a9209362aa2d316505a246ff169ef2</string>
+	<key>AuthKey</key>
+	<string>ABoDFFQqVnQCL1ptAHYELVE5BjMKfFRzBXlXNFg9VitVPlEwAmIGYF4wWyYOIVJkWXQPbFphUmIGbQN7AHJRMABqA29UP1YxAm1aPwAvBC9RZwZmCjxUaAVuVy9YKlY8VTZRKwJjBmZeL1s4DjhSbll0D21aYVJoBnoDewBsUTcAZQNjVD9WMAJvWj8ANAQ1UX0GeQowVDgFYlc1WDxWZFVgUTwCYwY1XjRbMA47UmFZdA9pWmFSbAZlA2MAaVE0AGQDeFQoVk0CHlolAHAEclE3BiAKKFQ5BThXZA%3D%3D</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

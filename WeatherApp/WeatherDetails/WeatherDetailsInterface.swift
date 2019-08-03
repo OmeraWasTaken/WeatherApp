@@ -1,5 +1,5 @@
 //
-//  WetherDetailsInterface.swift
+//  WeatherDetailsInterface.swift
 //  WetherApp
 //
 //  Created by Quentin Richard on 02/08/2019.
@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+protocol WeatherDetailsInterface {
+    typealias WeatherByDate = (date: Date, weather: WeatherInformation)
+
+    // *****************************************************************************************************************
+    // MARK: - Variable
+    var forecast: [WeatherByDate] { get }
+}

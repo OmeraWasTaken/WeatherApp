@@ -1,5 +1,5 @@
 //
-//  WetherAppUITests.swift
+//  WeatherAppUITests.swift
 //  WetherAppUITests
 //
 //  Created by Quentin Richard on 02/08/2019.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class WetherAppUITests: XCTestCase {
+class WeatherAppUITests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
