@@ -23,7 +23,6 @@ final class ForecastPersisted {
             forecastData.setValue(datedUnit.value.temperature, forKeyPath: "temperature")
             forecastData.setValue(datedUnit.value.humidity, forKeyPath: "humidity")
             forecastData.setValue(datedUnit.key, forKey: "date")
-
         }
         do {
             try managedContext.save()

@@ -11,7 +11,6 @@ import Foundation
 struct Endpoint {
     let path: String
     let queryItems: [URLQueryItem]
-
     let authKey: String = Environment.authKey
     let apiKey: String = Environment.apiKey
 }

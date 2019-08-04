@@ -6,10 +6,9 @@
 //  Copyright © 2019 QuentinRichard. All rights reserved.
 //
 
-import UIKit
 import CoreLocation
 import MapKit
-
+import UIKit
 
 class WeatherListCoordinator: Coordinator {
     private let presenter: UINavigationController

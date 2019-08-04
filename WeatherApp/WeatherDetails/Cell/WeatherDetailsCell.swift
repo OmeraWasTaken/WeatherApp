@@ -10,7 +10,7 @@ import UIKit
 
 final class WeatherDetailsCell: UITableViewCell {
     // *****************************************************************************************************************
-    // MARK: - IBOutler
+    // MARK: - IBOutlet
     @IBOutlet private weak var hoursLabel: UILabel!
     @IBOutlet private weak var temperatureLabel: UILabel!
     @IBOutlet private weak var humidityLabel: UILabel!

@@ -9,11 +9,15 @@
 import UIKit
 
 final class WeatherListCell: UITableViewCell {
+    // *****************************************************************************************************************
+    // MARK: - IBOutlet
     @IBOutlet private weak var cityLabel: UILabel!
     @IBOutlet private weak var temperatureLabel: UILabel!
     @IBOutlet private weak var humidityLabel: UILabel!
     @IBOutlet private weak var dateLabel: UILabel!
 
+    // *****************************************************************************************************************
+    // MARK: - Variable
     var viewModel: WeatherListCellInterface?
 
     func setup(with viewModel: WeatherListCellInterface) {

@@ -6,11 +6,22 @@
 //  Copyright © 2019 QuentinRichard. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
 final class WeatherDetailsController: BaseViewController {
+    // *****************************************************************************************************************
+    // MARK: - IBOutlet
     @IBOutlet weak var tableView: UITableView!
+
+    // *****************************************************************************************************************
+    // MARK: - Variable
     let viewModel: WeatherDetailsInterface
+    private let dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE d MMMM"
+        return dateFormatter
+    }()
 
     init(with viewModel: WeatherDetailsInterface) {
         self.viewModel = viewModel
@@ -21,6 +32,7 @@ final class WeatherDetailsController: BaseViewController {
         super.viewDidLoad()
 
         setupTableView()
+        setupNavigationView()
     }
 }
 
@@ -32,6 +44,10 @@ private extension WeatherDetailsController {
                            forCellReuseIdentifier: WeatherDetailsCell.nameOfClass)
         tableView.delegate = self
         tableView.dataSource = self
+    }
+
+    func setupNavigationView() {
+        self.title = dateFormatter.string(from: viewModel.forecast.first?.date ?? Date())
     }
 }
 

@@ -20,8 +20,4 @@ struct CodingByKey: CodingKey {
         self.intValue = intValue
         self.stringValue = String(intValue)
     }
-
-    static func makeKey(name: String) -> CodingByKey {
-        return CodingByKey(stringValue: name)!
-    }
 }

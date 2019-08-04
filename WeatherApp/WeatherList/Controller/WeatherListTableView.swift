@@ -14,6 +14,7 @@ final class WeatherListTableView: BaseViewController, CLLocationManagerDelegate 
     // *****************************************************************************************************************
     // MARK: - IBOutlet
     @IBOutlet private weak var tableView: UITableView!
+    
     // *****************************************************************************************************************
     // MARK: - Variable
     private let refreshControl = UIRefreshControl()

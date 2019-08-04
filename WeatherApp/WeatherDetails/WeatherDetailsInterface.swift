@@ -11,7 +11,5 @@ import Foundation
 protocol WeatherDetailsInterface {
     typealias WeatherByDate = (date: Date, weather: WeatherInformation)
 
-    // *****************************************************************************************************************
-    // MARK: - Variable
     var forecast: [WeatherByDate] { get }
 }
