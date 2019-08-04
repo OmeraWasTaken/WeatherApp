@@ -18,7 +18,7 @@ public enum Environment {
 
     static let authKey: String = {
         guard let authKey = Environment.infoDictionary["AuthKey"] as? String, authKey != "" else {
-            fatalError("Please set your API key in Info.plist")
+            fatalError("Please set your Auth key in Info.plist")
         }
         return authKey
     }()

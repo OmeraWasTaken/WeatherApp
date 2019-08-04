@@ -15,6 +15,7 @@ final class WeatherListViewModel: WeatherListInterface {
     // MARK: - Variables
     private var forecast: Forecast?
     private let forecastPersisted = ForecastPersisted()
+    private let api: APIInterface
     var city = "Paris"
     var dates = [Date]()
     
@@ -22,14 +23,17 @@ final class WeatherListViewModel: WeatherListInterface {
     // MARK: - Actions
     var refreshTableViewAction: (() -> Void) = {}
     var cellDidTap: (([WeatherByDate]) -> Void) = {_ in }
+    var refreshData: ((_ lat: Double, _ long: Double) -> Void) = {_,_ in }
+    var onError: (() -> Void) = {}
 
-    init() {
-        forecast = forecastPersisted.getForecastData()
-        distinctDays()
+    init(with api: APIInterface) {
+        self.api = api
+        getWeather(lat: 48.85341, long: 2.3488)
+        bindRefreshDataAction()
     }
 
     func getWeather(lat: Double, long: Double) {
-        API.shared.getWeather(lat: lat, long: long) { [weak self] result in
+        api.getWeather(lat: lat, long: long) { [weak self] result in
             switch result {
             case .success(let data):
                 if let forecast = data {
@@ -39,9 +43,12 @@ final class WeatherListViewModel: WeatherListInterface {
                     }
                     self?.forecast = forecast
                     self?.distinctDays()
+                } else {
+                    self?.getPersistedData()
                 }
-            case .failure(let error):
-                print(error) // Add AlertController
+            case .failure:
+                self?.getPersistedData()
+                self?.onError()
             }
         }
     }
@@ -69,12 +76,28 @@ final class WeatherListViewModel: WeatherListInterface {
         guard var currentDayDate = dates.first else {
             return
         }
-
+        distinctDayDates.append(currentDayDate)
         for date in dates.dropFirst() where !Calendar.current.isDate(date, inSameDayAs: currentDayDate) {
             currentDayDate = date
             distinctDayDates.append(date)
         }
         self.dates = distinctDayDates
         refreshTableViewAction()
+    }
+}
+
+private extension WeatherListViewModel {
+    func bindRefreshDataAction() {
+        refreshData = { [weak self] lat, long in
+            self?.getWeather(lat: lat, long: long)
+            self?.getCity(location: CLLocation(latitude: lat, longitude: long))
+        }
+    }
+
+    func getPersistedData() {
+        if let forecast = self.forecastPersisted.getForecastData() {
+            self.forecast = forecast
+            self.distinctDays()
+        }
     }
 }

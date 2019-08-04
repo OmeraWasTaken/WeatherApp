@@ -8,8 +8,12 @@
 
 import Foundation
 
-struct Forecast {
+struct Forecast: Equatable {
     let forecast: [Date: WeatherInformation]
+    
+    static func == (lhs: Forecast, rhs: Forecast) -> Bool {
+        return lhs.forecast == rhs.forecast
+    }
 }
 
 extension Forecast: Decodable {
@@ -24,23 +28,5 @@ extension Forecast: Decodable {
             }
         }
         self.forecast = forecast
-    }
-}
-
-struct CodingByKey: CodingKey {
-    var stringValue: String
-    var intValue: Int?
-
-    init?(stringValue: String) {
-        self.stringValue = stringValue
-    }
-
-    init?(intValue: Int) {
-        self.intValue = intValue
-        self.stringValue = String(intValue)
-    }
-
-    static func makeKey(name: String) -> CodingByKey {
-        return CodingByKey(stringValue: name)!
     }
 }

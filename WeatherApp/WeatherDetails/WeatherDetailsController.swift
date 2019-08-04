@@ -35,6 +35,8 @@ private extension WeatherDetailsController {
     }
 }
 
+// *****************************************************************************************************************
+// MARK: - ManageTableView
 extension WeatherDetailsController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.forecast.count

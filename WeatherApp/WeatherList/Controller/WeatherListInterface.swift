@@ -17,6 +17,9 @@ protocol WeatherListInterface {
     // MARK: - Actions
     var refreshTableViewAction: (() -> Void) { get set }
     var cellDidTap: (([WeatherByDate]) -> Void) { get set }
+    var refreshData: ((_ lat: Double, _ long: Double) -> Void) { get set }
+    var onError: (() -> Void) { get set}
+
 
     // *****************************************************************************************************************
     // MARK: - Variables

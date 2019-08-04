@@ -13,11 +13,14 @@ enum ApiError: Error {
     case unknow
 }
 
-final class API {
-    static let shared = API()
-    let urlSession = URLSession(configuration: .default)
+protocol APIInterface {
+    func getWeather(lat: Double, long: Double, handler: @escaping (Result<Forecast?, Error>) -> Void) 
+}
 
-    func request(_ endPoint: Endpoint, then handler: @escaping (Result<Data, Error>) -> Void) {
+final class API: APIInterface {
+    private let urlSession = URLSession(configuration: .default)
+
+    private func request(_ endPoint: Endpoint, then handler: @escaping (Result<Data, Error>) -> Void) {
         guard let url = endPoint.url else {
             return handler(.failure(ApiError.invalidUrl))
         }
@@ -29,7 +32,7 @@ final class API {
         task.resume()
     }
 
-    func resultDecoder<Object: Decodable>(_ result: Result<Data, Error>, handler: @escaping (Result<Object?, Error>) -> Void) {
+    private func resultDecoder<Object: Decodable>(_ result: Result<Data, Error>, handler: @escaping (Result<Object?, Error>) -> Void) {
         switch result {
         case .success(let data):
             let decoder = JSONDecoder()

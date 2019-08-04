@@ -16,7 +16,7 @@ class ApplicationCoordinator: Coordinator {
     init(window: UIWindow) {
         self.window = window
         rootViewController = UINavigationController()
-        rootViewController.navigationBar.prefersLargeTitles = true
+//        rootViewController.navigationBar.prefersLargeTitles = true
         weatherListCoordinator = WeatherListCoordinator(presenter: rootViewController)
         weatherListCoordinator.start()
     }

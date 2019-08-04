@@ -8,10 +8,12 @@
 
 import Foundation
 
-struct WeatherInformation: Decodable {
+struct WeatherInformation: Equatable {
     let temperature: Int
     let humidity: Float
+}
 
+extension WeatherInformation: Decodable {
     enum CodingKeys: String, CodingKey {
         case temperature = "temperature"
         case humidity = "humidite"

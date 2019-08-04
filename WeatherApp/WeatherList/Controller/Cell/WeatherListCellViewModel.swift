@@ -13,12 +13,11 @@ final class WeatherListCellViewModel: WeatherListCellInterface {
     var date = ""
     var temperature = ""
     var humidity = ""
-    let dateFormatter: DateFormatter = {
+    private let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE d MMMM"
         return dateFormatter
     }()
-
 
     init(date: Date, city: String, temperature: Int, humidity: Float) {
         self.city = city
@@ -26,8 +25,11 @@ final class WeatherListCellViewModel: WeatherListCellInterface {
         manageDate(with: date)
         manageTemperature(with: temperature)
         manageHumnidty(with: String(humidity))
+        
     }
+}
 
+private extension WeatherListCellViewModel {
     func manageDate(with date: Date) {
         self.date = dateFormatter.string(from: date)
     }

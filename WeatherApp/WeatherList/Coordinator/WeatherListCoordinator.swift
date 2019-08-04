@@ -14,13 +14,14 @@ import MapKit
 class WeatherListCoordinator: Coordinator {
     private let presenter: UINavigationController
     private var weatherListController: WeatherListTableView?
+    private let api = API()
 
     init(presenter: UINavigationController) {
         self.presenter = presenter
     }
 
     func start() {
-        let viewModel = WeatherListViewModel()
+        let viewModel = WeatherListViewModel(with: api)
         let controller = WeatherListTableView(with: viewModel)
         presenter.pushViewController(controller, animated: true)
         viewModel.cellDidTap = { [weak self] forecast in
