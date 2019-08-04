@@ -14,6 +14,7 @@ final class WeatherListViewModel: WeatherListInterface {
     // *****************************************************************************************************************
     // MARK: - Variables
     private var forecast: Forecast?
+    private let forecastPersisted = ForecastPersisted()
     var city = "Paris"
     var dates = [Date]()
     
@@ -22,16 +23,25 @@ final class WeatherListViewModel: WeatherListInterface {
     var refreshTableViewAction: (() -> Void) = {}
     var cellDidTap: (([WeatherByDate]) -> Void) = {_ in }
 
-    init() {}
+    init() {
+        forecast = forecastPersisted.getForecastData()
+        distinctDays()
+    }
 
     func getWeather(lat: Double, long: Double) {
         API.shared.getWeather(lat: lat, long: long) { [weak self] result in
             switch result {
             case .success(let data):
-                self?.forecast = data
-                self?.distinctDays()
+                if let forecast = data {
+                    DispatchQueue.main.async {
+                        self?.forecastPersisted.clean()
+                        self?.forecastPersisted.save(forecast: forecast)
+                    }
+                    self?.forecast = forecast
+                    self?.distinctDays()
+                }
             case .failure(let error):
-                print(error) // get persist data
+                print(error) // Add AlertController
             }
         }
     }
@@ -49,7 +59,6 @@ final class WeatherListViewModel: WeatherListInterface {
         if let forecast = forecast {
             return forecast.forecast.filter({ Calendar.current.isDate($0.key, inSameDayAs: date) }).map({ (date: $0, weather: $1) }).sorted(by: { $0.date < $1.date })
         } else {
-            // get persistData
             return []
         }
     }

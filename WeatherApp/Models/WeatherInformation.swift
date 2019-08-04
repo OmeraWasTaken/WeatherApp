@@ -33,4 +33,9 @@ struct WeatherInformation: Decodable {
         let humidityValues = try values.nestedContainer(keyedBy: HumidityKeys.self, forKey: .humidity)
         self.humidity = try humidityValues.decode(Float.self, forKey: .twoMeters)
     }
+
+    init(forecastData: ForecastData) {
+        self.temperature = Int(forecastData.temperature)
+        self.humidity = Float(forecastData.humidity)
+    }
 }

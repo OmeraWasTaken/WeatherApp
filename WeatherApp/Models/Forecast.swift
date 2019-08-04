@@ -8,9 +8,11 @@
 
 import Foundation
 
-struct Forecast: Decodable {
+struct Forecast {
     let forecast: [Date: WeatherInformation]
+}
 
+extension Forecast: Decodable {
     init(from decoder: Decoder) throws {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"

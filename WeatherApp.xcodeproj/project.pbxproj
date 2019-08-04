@@ -38,6 +38,8 @@
 		17F9080322F624A00077732C /* WeatherDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17F9080122F624A00077732C /* WeatherDetailsCell.xib */; };
 		17F9080522F624B40077732C /* WeatherDetailsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F9080422F624B40077732C /* WeatherDetailsCellViewModel.swift */; };
 		17F9080722F624C40077732C /* WeatherDetailsCellInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F9080622F624C40077732C /* WeatherDetailsCellInterface.swift */; };
+		17F9080A22F6C7C90077732C /* ForecastData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 17F9080822F6C7C90077732C /* ForecastData.xcdatamodeld */; };
+		17F9080C22F6C98E0077732C /* ForecastPersist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F9080B22F6C98E0077732C /* ForecastPersist.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +97,8 @@
 		17F9080122F624A00077732C /* WeatherDetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherDetailsCell.xib; sourceTree = "<group>"; };
 		17F9080422F624B40077732C /* WeatherDetailsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailsCellViewModel.swift; sourceTree = "<group>"; };
 		17F9080622F624C40077732C /* WeatherDetailsCellInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailsCellInterface.swift; sourceTree = "<group>"; };
+		17F9080922F6C7C90077732C /* ForecastData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ForecastData.xcdatamodel; sourceTree = "<group>"; };
+		17F9080B22F6C98E0077732C /* ForecastPersist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastPersist.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +161,7 @@
 				17473D4822F4C11B00961E8D /* Assets.xcassets */,
 				17473D4A22F4C11B00961E8D /* LaunchScreen.storyboard */,
 				17473D4D22F4C11B00961E8D /* Info.plist */,
+				17F9080822F6C7C90077732C /* ForecastData.xcdatamodeld */,
 			);
 			path = WeatherApp;
 			sourceTree = "<group>";
@@ -262,6 +267,7 @@
 			children = (
 				17AD5A0E22F5B20000D6567A /* Forecast.swift */,
 				17AD5A1522F5DA7300D6567A /* WeatherInformation.swift */,
+				17F9080B22F6C98E0077732C /* ForecastPersist.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -421,6 +427,7 @@
 			files = (
 				17473D8622F4CD3D00961E8D /* WeatherListCell.swift in Sources */,
 				17473D9922F5A08C00961E8D /* Environment.swift in Sources */,
+				17F9080A22F6C7C90077732C /* ForecastData.xcdatamodeld in Sources */,
 				17473D8E22F4D00400961E8D /* WeatherDetailsController.swift in Sources */,
 				17473D9022F4D05E00961E8D /* WeatherDetailsViewModel.swift in Sources */,
 				17473D9222F4D0F400961E8D /* WeatherDetailsInterface.swift in Sources */,
@@ -431,6 +438,7 @@
 				17473D8122F4CCC300961E8D /* WeatherListInterface.swift in Sources */,
 				17473D8A22F4CDF800961E8D /* WeatherListCellInterfae.swift in Sources */,
 				17473D9422F5998A00961E8D /* API.swift in Sources */,
+				17F9080C22F6C98E0077732C /* ForecastPersist.swift in Sources */,
 				17473D7522F4C43100961E8D /* Coordinator.swift in Sources */,
 				17F9080222F624A00077732C /* WeatherDetailsCell.swift in Sources */,
 				17473D8822F4CD5200961E8D /* WeatherListCellViewModel.swift in Sources */,
@@ -762,6 +770,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		17F9080822F6C7C90077732C /* ForecastData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				17F9080922F6C7C90077732C /* ForecastData.xcdatamodel */,
+			);
+			currentVersion = 17F9080922F6C7C90077732C /* ForecastData.xcdatamodel */;
+			path = ForecastData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 17473D3622F4C11500961E8D /* Project object */;
 }
